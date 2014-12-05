@@ -12,16 +12,23 @@ var app = app || {};
 	'use strict';
 
 	app.TodoFooter = React.createClass({
+		
+		clearCompleted: function() {
+			this.props.todos.clearCompleted();
+		},
+
 		render: function () {
 			var activeTodoWord = this.props.count === 1 ? 'item' : 'items';
 			var clearButton = null;
 
-			if (this.props.completedCount > 0) {
+			var completedCount = this.props.todos.completed().count;
+
+			if (completedCount > 0) {
 				clearButton = (
 					<button
 						id="clear-completed"
-						onClick={this.props.onClearCompleted}>
-						Clear completed ({this.props.completedCount})
+						onClick={this.clearCompleted}>
+						Clear completed ({completedCount})
 					</button>
 				);
 			}
