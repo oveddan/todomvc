@@ -1,0 +1,39 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mocha Tests</title>
+	<link rel="stylesheet" href="../bower_components/mocha/mocha.css" />
+</head>
+<body>
+	<div id="mocha"></div>
+	<!-- test dependencies -->
+	<script src="../bower_components/chai/chai.js"></script>
+	<script src="../bower_components/mocha/mocha.js"></script>
+	<script>mocha.setup('bdd')</script>
+	<!-- third party libs -->
+	<script src="../bower_components/react/react-with-addons.js"></script>
+	<script src="../bower_components/react/JSXTransformer.js"></script>
+	<script src="../bower_components/jquery/dist/jquery.js"></script>
+	<script src="../bower_components/underscore/underscore.js"></script>
+	<script src="../bower_components/backbone/backbone.js"></script>
+	<script src="../bower_components/backbone.localstorage/backbone.localStorage.js"></script>
+
+	<script src="../js/todo.js"></script>
+	<script src="../js/todos.js"></script>
+	<!-- jsx is an optional syntactic sugar that transforms methods in React's
+	`render` into an HTML-looking format. Since the two models above are
+	unrelated to React, we didn't need those transforms. -->
+	<script type="text/jsx" src="../js/todoItem.jsx"></script>
+	<script type="text/jsx" src="../js/components.jsx"></script>
+	<!-- <script type="text/jsx" src="js/app.jsx"></script> -->
+
+
+	<script type="text/jsx" src="ToggleAllCheckbox-test.jsx"></script>
+
+	<script>
+		mocha.checkLeaks();
+		mocha.globals(['React']);
+		mocha.run();
+	</script>
+</body>
+</html>
